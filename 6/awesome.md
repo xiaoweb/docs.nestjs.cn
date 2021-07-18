@@ -74,7 +74,7 @@
   - [Awesome Nest Boilerplate 😍](https://github.com/NarHakobyan/awesome-nest-boilerplate), Typescript 💪，Postgresql 🎉，TypeORM，Swagger for Api文档，角色基本访问控制和最佳应用程序架构。
   - [NestJS Prisma Starter](https://github.com/fivethree-team/nestjs-prisma-client-starter) - NestJS 的入门项目😻 包括带有 Prisma 客户端的 Graphql，Passport-JWT 身份验证，Swagger Api 和 Docker。
   - [TeanJS](https://github.com/adrien2p/teanjs) - TeanJS是一个入门程序，它为您提供所有方式，以便能够尽快开始编写代码😻
-  
+  - [NestJS DDD Boilerplate](https://github.com/pezzetti/base-app-nestjs) 具有 NestJS，类验证器和 TypeORM 的领域驱动设计基础应用程序。完全可测试。
 
 ### 使用 NestJS 的项目
 
@@ -92,9 +92,12 @@
   - [Nestjs Config](https://github.com/nestjsx/nestjs-config) -  处理项目配置的一个很棒的模块
   - [Nest Consul Config](https://github.com/nest-cloud/nest-consul-config) - 从 consul kv 获取配置的模块
   - [Nest Consul Service](https://github.com/nest-cloud/nestcloud) - 基于 Consul 的 NodeJS 微服务解决方案，由 Typescript 语言和 NestJS 框架编写
+  - [Nestjs Easy Config](https://github.com/rubiin/nestjs-easyconfig) - 一个用于管理配置的 nestjs模块，提供了一些现代的功能。
   - [Nest Consul Loadbalance](https://github.com/nest-cloud/nest-consul-loadbalance) -  用于 Rest 的软件负载均衡器
+  - [Nest Schedule(官方)](https://github.com/miaowing/nest-schedule) - 装饰器实现的定时任务。
   - [Nest Schedule](https://github.com/miaowing/nest-schedule) - 装饰器实现的定时任务。
-  - [Nest Queue](https://github.com/owl1n/nest-queue) - 基于 Redis 的简单队列管理，适用于您的应用程序
+  - [Nest Queue](https://github.com/owl1n/nest-queue) - 基于 Redis 的简单队列管理，适用于您的应用程序。
+  - [Nest AutoMapper](https://github.com/nestjsx/automapper) - NestJS 的 AutoMapper 模块。    
   - [nestjs bull](https://github.com/fwoelffel/nest-bull)   - Nestjs 分布式消息队列
 - 状态管理
   - [Ngrx Nest](https://github.com/derekkite/ngrx-nest) - 在 Nest 上使用  ngrx/store 和 ngrx/effects.
@@ -128,8 +131,13 @@
   - [Nest Pino](https://github.com/iamolegga/nestjs-pino) - 用于 nestjs 的 Pino 模块 ，😮在任意位置记录请求上下文😍
 - 监控
   - [Nest Status Monitor](https://github.com/GenFirst/nest-status-monitor) - 基于 Socket.io 和 Chart.js 的简单自托管模块，用于报告 Nest.js 的 node.js 服务器的实时状态。
+  - [Nest Terminus](https://github.com/nestjs/terminus) - 综合健康检查, 基于 [Terminus](https://github.com/godaddy/terminus) .
 - 国际化
-  - [Nest i18n](https://github.com/ToonvanStrijp/nestjs-i18n) - 在您的服务器上轻松添加 i18n 支持，内置丰富的格式化 api
+  - [Nest i18n](https://github.com/ToonvanStrijp/nestjs-i18n) - 在您的服务器上轻松添加 i18n 支持，内置丰富的格式化 api 。    
+- 事件
+  - [Nest Event](https://github.com/yak0/nest-event) - 使用 NestJS 框架的装饰器进行事件处理。
+- Auth
+  - [Nestjs Session](https://github.com/iamolegga/nestjs-session) - NestJS 的 Session 模块, 基于 [express-session](https://npm.im/express-session)
 
 ### 集成
 
@@ -138,6 +146,10 @@
   - [Nestjs + Auth0](https://github.com/cdiaz/nestjs-auth0) - 使用 Auth0 的 NestJS Framework Web 应用程序。
 - 数据库
   - [Typeorm](https://github.com/nestjs/typeorm) - 用于 Nest 框架的 TypeORM 模块 [[Tutorial](http://docs.nestjs.com/recipes/sql-typeorm)].
+  - [hasura](https://hasura.io/) -Hasura 连接到您的数据库和微服务，并提供可用于生产的GraphQL API。
+  - [prisma](https://www.prisma.io/) -Prisma 取代了传统的ORM。
+  - [sequelize](https://github.com/sequelize/sequelize) -传统 Node.js ORM
+  - [notadd-cli](https://github.com/notadd/notadd-cli) - Typescript 生成 Graphql 。
   - [Magnus](https://github.com/notadd/magnus) 自动生成 grpc 及 graphql 的库。
   - [Nest Mongoose](https://github.com/nestjs/mongoose) - 用于 Nest 框架的 Mongoose 模块
   - [Nest Typegoose](https://github.com/kpfromer/nestjs-typegoose) - nest.js 的 [Typegoose](https://github.com/szokodiakos/typegoose) 模块。
@@ -155,6 +167,7 @@
   - [Nestjs AMQP](https://github.com/nestjsx/nestjs-amqp) - amqp 连接管理器
 - 支付网关
   - [Nestjs Braintree](https://github.com/nestjsx/nestjs-braintree) - 一个用于 webhooks 交易的模块。
+  - [Nestjs Stripe](https://github.com/dhaspden/nestjs-stripe) - 将已配置的 Stripe 客户端注入服务的模块。
   - [Notadd pay](https://github.com/notadd/nt-addon-pay) - 支持微信和支付宝支付。
 - Consul
   - [Nest Consul](https://github.com/nest-cloud/nestcloud) - 基于 Consul 的 NodeJS 微服务解决方案，由Typescript 语言和 NestJS 框架编写
@@ -168,5 +181,10 @@
   - [CLI](https://github.com/nestjs/nest-cli) - Nestjs 应用程序的 CLI 工具。
   - [Yeoman Generator](https://github.com/ashinzekene/generator-nestjs-app) -  用于 nestsjs 应用程序的自动生成器。
   - [Nestjs Console](https://github.com/Pop-Code/nestjs-console) - 一个为应用程序提供 cli 的 Nestjs 模块。
+
+
+### 其他
+
+- [ts-toolbelt](https://github.com/pirix-gh/ts-toolbelt) - ts-toolbelt 是一个类型库，它提供了更新，更改和计算 TypeScript 类型的简单方法。    
 
 更多... [nestjs-awesome](https://github.com/juliandavidmr/awesome-nestjs)

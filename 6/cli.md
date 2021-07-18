@@ -18,7 +18,7 @@ $ npm install -g @nestjs/cli
 
 ### 基本工作流程
 
-安装过程完成后，您应该能够通过``nest` 可执行文件直接从命令行调用 `CLI` 命令。
+安装过程完成后，您应该能够通过 `nest` 可执行文件直接从命令行调用 `CLI` 命令。
 
 ```bash
 $ nest --help
@@ -99,7 +99,7 @@ $ nest n my-nest-project -d
 | `update`|`u`| 更新包中的 `@nestjs` `package.json `  `dependencies` 列表的 `@latest` 版本。|
 
 
-### 工作空间
+## 工作空间
 
 `Nest` 有两种组织代码的模式:
 
@@ -115,7 +115,7 @@ $ nest n my-nest-project -d
 
 当您运行 `nest new` 时，将使用一个内置的示意图为您创建一个新项目。`Nest` 的做法如下:
 
-## 用法
+### 用法
 
 1. 创建一个新文件夹，与您为 `nest new` 提供的名称参数相对应
 
@@ -125,7 +125,7 @@ $ nest n my-nest-project -d
 
 ### Monorepo模式
 
-要启用 `monorepo` 模式，您可以从一个标准模式结构开始，然后添加项目。项目可以是一个完整的应用程序(使用 `nest generate`应用程序将其添加到 `workspace` 中)，也可以是一个库(使用 `nest generate` 库将其添加到 `workspace` 中)。我们将在下面详细讨论这些特定类型的项目组件。现在要注意的关键点是将项目添加到现有的标准模式结构中，然后将其转换为 `monorepo` 模式。让我们看一个例子。
+要启用 `monorepo` 模式，您可以从一个标准模式结构开始，然后添加 `project` 。 `project` 可以是一个完整的应用程序(使用 `nest generate app` 将一个应用程序添加到 `workspace` 中)，也可以是一个库(使用 `nest generate lib` 将一个库添加到 `workspace` 中)。我们将在下面详细讨论这些特定类型的项目组件。现在要注意的关键点是将项目添加到现有的标准模式结构中，然后将其转换为 `monorepo` 模式。让我们看一个例子。
 
 如果我们运行:
 
@@ -215,7 +215,7 @@ $ nest start my-app
 
 然而，该示意图确实生成了特定于项目的 `tsconfig.app.json`。此配置文件自动设置适当的生成选项，包括正确设置编译输出文件夹。该文件扩展了顶级(monorepo) `tsconfig.json` 文件，因此您可以管理单点范围内的全局设置，但是如果需要，可以在项目级别覆盖它们。
 
-### 库
+## 库
 
 如前所述，库类型项目，或简称为“库”，是 `Nest` 组件的程序包，需要将它们组成应用程序才能运行。 您可以使用嵌套生成库来生成库类型的项目。我们在库这章深入讨论库。
 
@@ -520,7 +520,7 @@ common version : 6.0.0
 core version : 6.0.0
 ```
 
-## scripts
+## 脚本
 
 ### Nest CLI和 scripts
 
@@ -540,16 +540,16 @@ Nest应用程序是标准的 `TypeScript` 应用程序，需要先将其编译�
 
 ### Build
 
-`nest build` 是标准 `tsc` 编译器(用于标准项目)或 `webpac` k编译器(用于 `monorepos` )之上的包装器。它不添加任何其他编译特性或步骤。它存在的原因是，大多数开发人员，特别是在开始使用 `Nest`时，不需要调整编译器选项(（例如 `tsconfig.json` 文件）。
+`nest build` 是标准 `tsc` 编译器(用于标准项目)或 `webpack` 编译器(用于 `monorepos` )之上的包装器。它不添加任何其他编译特性或步骤。它存在的原因是，大多数开发人员，特别是在开始使用 `Nest` 时，不需要调整编译器选项(（例如 `tsconfig.json` 文件）。
 
 
 有关更多细节，请参见 `nest build`文档。
 
 ### Execution
 
-`nest start`只是确保已构建项目（与 `nest build` 相同），然后以可移植，简单的方式调用 `node` 命令以执行已编译的应用程序。 与构建一样，您可以根据需要自由定制此过程，可以使用 `nest start` 命令及其选项，也可以完全替换它。 整个过程是标准的 `TypeScript` 应用程序构建和执行管道，您可以自由地管理过程。
+`nest start` 只是确保已构建项目（与 `nest build` 相同），然后以可移植，简单的方式调用 `node` 命令以执行已编译的应用程序。 与构建一样，您可以根据需要自由定制此过程，可以使用 `nest start` 命令及其选项，也可以完全替换它。 整个过程是标准的 `TypeScript` 应用程序构建和执行管道，您可以自由地管理过程。
 
-有关更多详细信息，请参见`nest start`文档。
+有关更多详细信息，请参见 `nest start` 文档。
 
 ### Generation
 
@@ -604,7 +604,7 @@ $ npm install -D @nestjs/cli
 
 | 用户名 | 头像 | 职能 | 签名 |
 |---|---|---|---|
-| [@zuohuadong](https://github.com/zuohuadong)  | <img class="avatar-66 rm-style" src="https://wx3.sinaimg.cn/large/006fVPCvly1fmpnlt8sefj302d02s742.jpg">  |  翻译  | 专注于 caddy 和 nest，[@zuohuadong](https://github.com/zuohuadong/) at Github  |
+| [@zuohuadong](https://www.zhihu.com/people/dongcang)  | <img class="avatar-66 rm-style" src="https://pic.downk.cc/item/5f4cafe7160a154a67c4047b.jpg">  |  翻译  | 专注于 caddy 和 nest，[@zuohuadong](https://github.com/zuohuadong/) at Github  |
 [@Armor](https://github.com/Armor-cn)  | <img class="avatar-66 rm-style" height="70" src="https://avatars3.githubusercontent.com/u/31821714?s=460&v=4">  |  翻译  | 专注于 Java 和 Nest，[@Armor](https://armor.ac.cn/) 
 | [@Drixn](https://drixn.com/)  | <img class="avatar-66 rm-style" src="https://cdn.drixn.com/img/src/avatar1.png">  |  翻译  | 专注于 nginx 和 C++，[@Drixn](https://drixn.com/) |
 | [@franken133](https://github.com/franken133)  | <img class="avatar rounded-2" src="https://avatars0.githubusercontent.com/u/17498284?s=400&amp;u=aa9742236b57cbf62add804dc3315caeede888e1&amp;v=4" height="70">  |  翻译  | 专注于 java 和 nest，[@franken133](https://github.com/franken133)|

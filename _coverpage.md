@@ -7,10 +7,11 @@
 
 - 完美支持 Typescript 
 - 面向 AOP 编程 
-- 支持 typeorm
+- 支持 Typeorm
+- 高并发，异步非阻塞 IO
 - Node.js 版的 spring
 - 构建微服务应用
 
-[6.x](/6/firststeps.md)
-[GitHub](https://github.com/nestjs/nest)
-[加入QQ群](https://jq.qq.com/?_wv=1027&k=5uaXPHc)
+[8.x 文档](/8/firststeps.md)
+[学习资料/库](https://docs.nestjs.cn/8/awesome)
+[学习交流群](https://docs.nestjs.cn/8/discuss)

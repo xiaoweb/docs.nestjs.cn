@@ -106,10 +106,11 @@ $ npm install --save-dev @types/hapi__joi
 
 ```typescript
 import { PipeTransform, Injectable, ArgumentMetadata, BadRequestException } from '@nestjs/common';
+import { ObjectSchema } from '@hapi/joi';
 
 @Injectable()
 export class JoiValidationPipe implements PipeTransform {
-  constructor(private readonly schema: Object) {}
+  constructor(private readonly schema: ObjectSchema) {}
 
   transform(value: any, metadata: ArgumentMetadata) {
     const { error } = this.schema.validate(value);
@@ -119,6 +120,16 @@ export class JoiValidationPipe implements PipeTransform {
     return value;
   }
 }
+```
+`create-cat.schema.ts`
+```typescript
+import Joi = require("@hapi/joi");
+
+export const createCatSchema = Joi.object({
+    name: Joi.string(),
+    age: Joi.number(),
+    breed: Joi.string()
+})
 ```
 
 ## 绑定管道
@@ -395,7 +406,7 @@ export interface ValidationPipeOptions extends ValidatorOptions {
 
 | 用户名                                       | 头像                                                                                                                                                            | 职能 | 签名                                                                          |
 | -------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- | ----------------------------------------------------------------------------- |
-| [@zuohuadong](https://github.com/zuohuadong) | <img class="avatar-66 rm-style" src="https://wx3.sinaimg.cn/large/006fVPCvly1fmpnlt8sefj302d02s742.jpg">                                                        | 翻译 | 专注于 caddy 和 nest，[@zuohuadong](https://github.com/zuohuadong/) at Github |
+| [@zuohuadong](https://github.com/zuohuadong) | <img class="avatar-66 rm-style" src="https://pic.downk.cc/item/5f4cafe7160a154a67c4047b.jpg">                                                        | 翻译 | 专注于 caddy 和 nest，[@zuohuadong](https://github.com/zuohuadong/) at Github |
 | [@Drixn](https://drixn.com/)                 | <img class="avatar-66 rm-style" src="https://cdn.drixn.com/img/src/avatar1.png">                                                                                | 翻译 | 专注于 nginx 和 C++，[@Drixn](https://drixn.com/)                             |
 [@Armor](https://github.com/Armor-cn)  | <img class="avatar-66 rm-style" height="70" src="https://avatars3.githubusercontent.com/u/31821714?s=460&v=4">  |  翻译  | 专注于 Java 和 Nest，[@Armor](https://armor.ac.cn/) |
 | [@tangkai](https://github.com/tangkai123456) | <img class="avatar-66 rm-style" height="70" src="https://avatars1.githubusercontent.com/u/22436910">                                                            | 翻译 | 专注于 React，[@tangkai](https://github.com/tangkai123456)                    |
