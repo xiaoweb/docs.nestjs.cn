@@ -21,6 +21,9 @@
   - [QQ 群 (中文社区)](https://jq.qq.com/?_wv=1027&k=5DnXWGR)
   - [Reddit (社区维护)](https://www.reddit.com/r/Nestjs_framework)
 
+- 中文视频
+  - [全栈之巅](https://space.bilibili.com/341919508)
+
 - 书籍
   
 
@@ -138,6 +141,10 @@
   - [Nest Hackathon Starter](https://github.com/ahmetuysal/nest-hackathon-starter) - Hackathon 入门项目，包括 TypeORM、电子邮件验证、Passport-JWT 身份验证、Swagger 等
   - [Stator](https://github.com/chocolat-chaud-io/stator) - 一个全栈式的模板，可以做所有的事情--自动发布、部署、强制执行
   - [NestJS REST Starter Kit - By MonstarLab](https://github.com/monstar-lab-oss/nestjs-starter-rest-api) - 一个由MonstarLab提供的生产就绪的 NestJS 模板。核心功能。JWT认证，RBAC授权，TypeORM，winston日志，分页，Docker就绪，自动生成的Swagger。次要特征：更漂亮、提交提示的 husky 钩子、SonarCloud github actions、docker-compose
+  - [NestJS MikroORM Template](https://github.com/WumaCoder/nest-mikro-template) - 一个 Nest 项目模板，包括 mikro-orm、mongo、git hook、class-verify、swagger、commitlint、无需编译直接运行、自动格式化 ...
+  - [NestJS TypeORM Template](https://github.com/WumaCoder/nest-typeorm-template) - 一个 Nest 项目模板，包括 typeorm、mongo、git hook、class-verify、swagger、commitlint、无需编译直接运行、自动格式化 ...
+
+
 
 
 
@@ -154,6 +161,7 @@
   - [Notadd](https://github.com/notadd/notadd) - 微服务开发架构
   - [Pimp My PR](https://github.com/valueadd-poland/pimp-my-pr) - 用于统计和拉取请求管理的开源平台
   - [Vendure](https://github.com/vendure-ecommerce/vendure) - 开源的后端 GraphQL 电子商务框架，易于定制的 NestJS 框架
+  - [iola](https://github.com/pvarentsov/iola) - 支持 Rest API 的 Socket 客户端
   
 
 ### 常用库

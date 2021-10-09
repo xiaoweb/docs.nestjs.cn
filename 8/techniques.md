@@ -48,7 +48,7 @@ export class AppModule {}
 | retryAttempts       | 重试连接数据库的次数（默认：10）                         |
 | retryDelay          | 两次重试连接的间隔(ms)（默认：3000）                     |
 | autoLoadEntities    | 如果为`true`,将自动加载实体(默认：false)                 |
-| keepConnectionAlive | 如果未`true`，在应用程序关闭后连接不会关闭（默认：false) |
+| keepConnectionAlive | 如果为`true`，在应用程序关闭后连接不会关闭（默认：false) |
 
 ?> 更多连接选项见[这里](https://typeorm.io/#/connection-options)
 
@@ -2094,7 +2094,8 @@ GET /?ids=1,2,3
 我们首先需要安装所需的包：
 
 ```bash
-$ npm install --save cache-manager
+$ npm install cache-manager
+$ npm install -D @types/cache-manager
 ```
 
 ### 内存缓存
@@ -2112,9 +2113,59 @@ import { AppController } from './app.controller';
 export class ApplicationModule {}
 ```
 
-!> 在`[GraphQL](https://docs.nestjs.com/graphql/quick-start)`应用中，拦截器针对每个字段处理器分别运行，因此，`CacheModule`(使用)
+### 与缓存存储的交互
 
-然后将 `CacheInterceptor` 绑定到需要缓存数据的地方。
+为了和缓存管理器实例进行交互，需要使用`CACHE_MANAGER`标记将其注入到你的类，如下所示:
+
+```typescript
+constructor(@Inject(CACHE_MANAGER) private cacheManager: Cache) {}
+```
+
+?> `Cache`类是从`cache-manager`中导入的，而`CACHE_MANAGER`则是从`@nestjs/common`包中导入的。
+
+`Cache`实例(来自cache-manager包)上的`get`方法被用来从缓存中检索键值。如果该键在缓存中不存在，则返回null。
+
+```typescript
+const value = await this.cacheManager.get('key');
+```
+
+使用`set`方法将一个键值对添加到缓存中:
+
+```typescript
+await this.cacheManager.set('key', 'value');
+```
+
+缓存的默认过期时间是5秒。
+
+你可以为特定的键手动指定一个TTL(过期时间，以秒为单位)，如下所示:
+
+```typescript
+await this.cacheManager.set('key', 'value', { ttl: 1000 });
+```
+
+如果要让缓存永不过期，请将配置的`ttl`属性设置为`0`。
+
+```typescript
+await this.cacheManager.set('key', 'value', { ttl: 0 });
+```
+
+使用`del`方法从缓存中删除一个键值对:
+
+```typescript
+await this.cacheManager.del('key');
+```
+
+使用`reset`方法清空整个缓存:
+
+```typescript
+await this.cacheManager.reset();
+```
+
+### 自动缓存响应
+
+!> 在`[GraphQL](https://docs.nestjs.com/graphql/quick-start)`应用中，拦截器针对每个字段解析器分别运行，因此，`CacheModule`(使用拦截器来缓存响应)将无法正常工作。
+
+要启用自动缓存响应，只需在想缓存数据的地方绑定`CacheInterceptor`。
 
 ```typescript
 @Controller()
@@ -2131,7 +2182,7 @@ export class AppController {
 
 ### 全局缓存
 
-为了减少重复代码量，可以一次绑定 `CacheInterceptor` 到每个现有节点:
+为了减少重复代码量，可以将`CacheInterceptor`全局绑定到每个端点(endpoints):
 
 ```typescript
 import { CacheModule, Module, CacheInterceptor } from '@nestjs/common';
@@ -2148,7 +2199,7 @@ import { APP_INTERCEPTOR } from '@nestjs/core';
     },
   ],
 })
-export class ApplicationModule {}
+export class AppModule {}
 ```
 
 ### 定制缓存
@@ -3869,7 +3920,50 @@ MulterModule.registerAsync({
 ```
 ## 流处理文件
 
-（待翻译）
+!> 这个章节将向你展示如何在`HTTP应用`中流处理文件。以下例子不适用于GraphQL或者微服务应用
+
+有时你可能想从你的REST API向客户端发送文件，想要在Nest中做到这一点，你可能会像下面这样做：
+
+```typescript
+@Controller('file')
+export class FileController {
+  @Get()
+  getFile(@Res() res: Response) {
+    const file = createReadStream(join(process.cwd(), 'package.json'));
+    file.pipe(res);
+  }
+}
+```
+但是这样一来，你就会丢失控制器之后的拦截器逻辑。想要避免这一点，你可以返回一个`StreamableFile`实例，框架会帮你使用管道传输响应。
+
+### Streamable File类
+
+`StreamableFile`是一个持有要返回的流的类。你可以传入一个`Buffer`或者`Stream`到`StreamableFile`类的构造函数来创建一个新的`StreamableFile`实例。
+
+?> `StreamableFile`类可以从`@nestjs/common`中导入
+
+### 跨平台支持
+
+默认情况下，Fastify服务器可以不通过`stream.pipe(res)`直接发送文件，所以你并不需要使用`StreamableFile`类。但是，Nest仍然支持在所有这些类型的平台上使用`StreamableFile`，所以即使你需要在Express和Fastify之间切换，也不需要担心这两个引擎上的兼容性问题。
+
+### 例子
+
+下面是一个作为文件而不是JSON返回`package.json`的例子，当然，它也适用于图片、文档和所有其他类型的文件。
+
+```typescript
+import { Controller, Get, StreamableFile } from '@nestjs/common';
+import { createReadStream } from 'fs';
+import { join } from 'path';
+
+@Controller('file')
+export class FileController {
+  @Get()
+  getFile(): StreamableFile {
+    const file = createReadStream(join(process.cwd(), 'package.json'));
+    return new StreamableFile(file);
+  }
+}
+```
 
 ## HTTP 模块
 
